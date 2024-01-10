@@ -12,7 +12,7 @@ class IntroController extends GetxController {
   }
 
   void nextPage() {
-    Future.delayed(const Duration(seconds: 2)).then(
+    Future.delayed(const Duration(seconds: 3)).then(
       (value) => Get.to(
         () => const HomeScreen(),
         binding: HomeBinding()

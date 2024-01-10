@@ -9,7 +9,12 @@ class HomeScreen extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text(
+          'Football',
+          selectionColor: Colors.black26,
+        ),
+      ),
       body: _buildBody(),
     );
   }
@@ -31,40 +36,43 @@ class HomeScreen extends GetView<HomeController> {
     );
   }
 
-  Widget _item(FixtureItemModel item) {
+  Widget _item(FixtureItemModel fixtureItemModel) {
     return Container(
       margin: const EdgeInsets.symmetric(
         vertical: 5,
-        horizontal: 16,
+        horizontal: 15,
       ),
       padding: const EdgeInsets.all(10),
       height: 150,
       width: Get.width,
-      color: Colors.blue,
+      color: Colors.blueGrey,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+
           Column(
             children: [
               Image.network(
-                item.teams.home.logo,
+                fixtureItemModel.teams.home.logo,
                 height: 100,
                 width: 100,
               ),
               const SizedBox(height: 10),
-              Text(item.teams.home.name),
+              Text(fixtureItemModel.teams.home.name),
             ],
           ),
+          if (fixtureItemModel.goals != null && fixtureItemModel.goals!.home != null) Text(fixtureItemModel.goals!.home.toString()) ,
+          if (fixtureItemModel.goals != null && fixtureItemModel.goals!.away != null) Text(fixtureItemModel.goals!.away.toString()) ,
           Column(
             children: [
               Image.network(
-                item.teams.away.logo,
+                fixtureItemModel.teams.away.logo,
                 height: 100,
                 width: 100,
               ),
               const SizedBox(height: 10),
-              Text(item.teams.away.name),
+              Text(fixtureItemModel.teams.away.name),
             ],
           ),
         ],
@@ -72,3 +80,4 @@ class HomeScreen extends GetView<HomeController> {
     );
   }
 }
+
