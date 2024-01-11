@@ -50,7 +50,6 @@ class HomeScreen extends GetView<HomeController> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-
           Column(
             children: [
               Image.network(
@@ -62,8 +61,12 @@ class HomeScreen extends GetView<HomeController> {
               Text(fixtureItemModel.teams.home.name),
             ],
           ),
-          if (fixtureItemModel.goals != null && fixtureItemModel.goals!.home != null) Text(fixtureItemModel.goals!.home.toString()) ,
-          if (fixtureItemModel.goals != null && fixtureItemModel.goals!.away != null) Text(fixtureItemModel.goals!.away.toString()) ,
+          if (fixtureItemModel.goals != null &&
+              fixtureItemModel.goals!.home != null)
+            Text(fixtureItemModel.goals!.home.toString()),
+          if (fixtureItemModel.goals != null &&
+              fixtureItemModel.goals!.away != null)
+            Text(fixtureItemModel.goals!.away.toString()),
           Column(
             children: [
               Image.network(
@@ -80,4 +83,3 @@ class HomeScreen extends GetView<HomeController> {
     );
   }
 }
-

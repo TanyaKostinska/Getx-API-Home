@@ -8,7 +8,6 @@ class GoalsModel {
   });
 
   factory GoalsModel.fromJson(Map<String, dynamic> json) {
-
     return GoalsModel(
       home: json['home'],
       away: json['away'],
